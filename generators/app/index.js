@@ -38,6 +38,12 @@ module.exports = class extends Generator {
 			choices: ['NodeJS']	
 		}, {
 			type: 'list',
+			name: 'framework',
+			message: 'Choice of the framework',
+			when: (response) => response.choiceType === 'NodeJS',
+			choices: ['Express', 'HapiJS']	
+		}, {
+			type: 'list',
 			name: 'documentationFormat',
 			message: 'Format of your Documentation',
 			choices: ['Markdown', 'AsciiDoc']	
@@ -85,8 +91,11 @@ module.exports = class extends Generator {
 		if(this.answers.projectType === 'Web'){
     		this.npmInstall(['live-server@1.2.0'], { 'save-dev': true }, null, {cwd: this.answers.projectName});
 		}
-		if(this.answers.projectType === 'Back' && this.answers.choiceType === 'NodeJS'){
+		if(this.answers.framework === 'Express'){
 			this.npmInstall(['express@4.14.0'], { 'save': true }, null, {cwd: this.answers.projectName});
+		}
+		if(this.answers.framework === 'HapiJS'){
+			this.npmInstall(['hapi@16.1.0'], { 'save': true }, null, {cwd: this.answers.projectName});
 		}
 	}
 
@@ -102,9 +111,16 @@ module.exports = class extends Generator {
 				{ projectName: this.answers.projectName }
 			);
 		}
-		if(this.answers.projectType === 'Back' && this.answers.choiceType === 'NodeJS'){
+		if(this.answers.framework === 'Express'){
 			this.fs.copyTpl(
-				this.templatePath('back/nodejs/index.js'),
+				this.templatePath('back/express/index.js'),
+				this.destinationPath(`${this.answers.projectName}/index.js`),
+				{ projectName: this.answers.projectName }
+			);
+		}
+		if(this.answers.framework === 'HapiJS'){
+			this.fs.copyTpl(
+				this.templatePath('back/hapijs/index.js'),
 				this.destinationPath(`${this.answers.projectName}/index.js`),
 				{ projectName: this.answers.projectName }
 			);
