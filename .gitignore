@@ -4,3 +4,6 @@ node_modules
 */target/*
 target
 dependency-reduced-pom.xml
+/generators/app/templates/back/java/target
+/generators/app/templates/back/java/out
+/generators/app/templates/back/java/.idea
