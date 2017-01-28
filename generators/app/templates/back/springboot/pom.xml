@@ -40,10 +40,8 @@
     </dependencies>
 
 
-
-
     <build>
-        <plugins>
+        <plugins>   
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -56,6 +54,10 @@
         <repository>
             <id>spring-releases</id>
             <url>https://repo.spring.io/libs-release</url>
+        </repository>
+        <repository>
+            <id>alfresco</id>
+            <url>https://artifacts.alfresco.com/nexus/content/repositories/public/</url>
         </repository>
     </repositories>
     <pluginRepositories>

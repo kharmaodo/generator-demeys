@@ -133,8 +133,8 @@ module.exports = class extends Generator {
 				this.destinationPath(this.answers.projectName)
 			);
 			this.fs.copyTpl(
-				this.templatePath('back/dropwizard/application/src/main/java/com/demeys/app/controller/DemeysController.java'),
-				this.destinationPath(`${this.answers.projectName}application/src/main/java/com/demeys/app/controller/DemeysController.java`),
+				this.templatePath('back/springboot/src/main/java/app/controller/DemeysController.java'),
+				this.destinationPath(`${this.answers.projectName}/src/main/java/app/controller/DemeysController.java`),
 				{ projectName: this.answers.projectName }
 			);
 		}
