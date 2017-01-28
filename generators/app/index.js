@@ -35,7 +35,7 @@ module.exports = class extends Generator {
 			name: 'choiceType',
 			message: 'Choice of the back project',
 			when: (response) => response.projectType === 'Back',
-			choices: ['NodeJS', 'Java/Dropwizard']
+			choices: ['NodeJS', 'Java/Springboot', 'Java/Dropwizard']
 		}, {
 			type: 'list',
 			name: 'framework',
@@ -135,7 +135,21 @@ module.exports = class extends Generator {
 		}
 	}
 
-	copyDWFiles() {
+  copySpringBootFiles() {
+		if (this.answers.projectType === 'Back' && this.answers.choiceType === 'Java/Springboot') {
+			this.fs.copy(
+				this.templatePath('back/springboot/'),
+				this.destinationPath(this.answers.projectName)
+			);
+			this.fs.copyTpl(
+				this.templatePath('back/springboot/src/main/java/app/controller/DemeysController.java'),
+				this.destinationPath(`${this.answers.projectName}/src/main/java/app/controller/DemeysController.java`),
+        { projectName: this.answers.projectName }
+			);
+		}
+  }
+	
+  copyDWFiles() {
 		if (this.answers.projectType === 'Back' && this.answers.choiceType === 'Java/Dropwizard') {
 			this.fs.copy(
 				this.templatePath('back/dropwizard/'),
