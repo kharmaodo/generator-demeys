@@ -21,5 +21,5 @@ import lombok.ToString;
 @ToString
 public class App {
     @JsonProperty
-    private String name;
+    private String projectName;
 }

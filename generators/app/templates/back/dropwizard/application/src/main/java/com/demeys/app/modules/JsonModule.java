@@ -5,9 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.inject.Provides;
 import io.dropwizard.setup.Bootstrap;
 
-/**
- * Created by a508708 on 25/01/2017.
- */
 public class JsonModule {
     private Bootstrap<DemeysAppDWConfiguration> bootstrap;
 

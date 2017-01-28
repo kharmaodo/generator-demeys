@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 public class AppService {
 
     public App getAppName() {
-        App app = new App("Demeys");
+        App app = new App("<%= projectName %>");
         return app;
     }
 

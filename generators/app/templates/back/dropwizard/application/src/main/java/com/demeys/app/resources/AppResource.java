@@ -15,7 +15,7 @@ import javax.ws.rs.core.UriInfo;
 /**
  * Created by TODO : set user name on TODO : set date.
  */
-@Path("app")
+@Path("api")
 @Produces(MediaType.APPLICATION_JSON)
 @Slf4j
 public class AppResource {
