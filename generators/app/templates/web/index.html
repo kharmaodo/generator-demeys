@@ -5,6 +5,11 @@
     </head>
     <body>
         <h1><%= projectName %> Project</h1>
+        <script type="text/javascript">
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('service-worker.js');
+            }
+        </script>
         <script src="script.js"></script>
     </body>
 </html>
