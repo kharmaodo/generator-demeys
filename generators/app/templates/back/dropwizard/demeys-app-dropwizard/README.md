@@ -11,4 +11,4 @@ cd demeys-app-dropwizard-application
 mvn exec:java
 ```
 
-Browse http://localhost:9090/app/
+Browse http://localhost:3000/app/
